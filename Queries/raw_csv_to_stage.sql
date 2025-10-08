@@ -17,7 +17,8 @@ CREATE OR REPLACE FILE FORMAT csv_format
     FIELD_OPTIONALLY_ENCLOSED_BY = '"'
     FIELD_DELIMITER = ','
     SKIP_HEADER = 1
-    NULL_IF = ('NULL', 'null');
+    NULL_IF = ('NULL', 'null')
+    DATE_FORMAT = 'YYYYMMDD';  -- Fix: correctly handles date format
 
 -- 2. Create a stage using CSV format
 CREATE OR REPLACE STAGE csv_stage 
